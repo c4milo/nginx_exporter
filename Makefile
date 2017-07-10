@@ -1,4 +1,4 @@
-NAME := nginx-exporter
+NAME := nginx_exporter
 VERSION := v0.1.0
 LDFLAGS := -ldflags "-X main.Version=$(VERSION)"
 
@@ -21,9 +21,9 @@ install: ## Locally installs dev binary
 	go install $(LDFLAGS)
 
 deps: ## Installs dev dependencies
-	go get github.com/c4milo/github-release
-	go get github.com/mitchellh/gox
-	go get github.com/kardianos/govendor
+	go get -u -v github.com/c4milo/github-release
+	go get -u -v github.com/mitchellh/gox
+	go get -u -v github.com/kardianos/govendor
 
 dist: build ## Generates distributable artifacts
 	$(eval FILES := $(shell ls build))
